@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kolpek Associates</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER & NAVBAR ===== -->
+  <header>
+    <nav>
+      <h1>Kolpek Associates</h1>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#success">Success Stories</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="login.php">Login</a></li> <!-- New Login link -->
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2>Your Trusted Partner in Finance</h2>
+      <p>We help you achieve your dreams with easy, quick, and transparent loans.</p>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES SECTION ===== -->
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="service-box">
+      <div class="service">
+        <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" alt="Home Loan">
+        <h3>Home Loan</h3>
+        <p>Flexible EMI plans to help you buy your dream home.</p>
+      </div>
+      <div class="service">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135673.png" alt="Business Loan">
+        <h3>Business Loan</h3>
+        <p>Grow your business with tailored financial solutions.</p>
+      </div>
+      <div class="service">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" alt="Personal Loan">
+        <h3>Personal Loan</h3>
+        <p>Quick approval loans to cover your personal needs.</p>
+      </div>
+      <div class="service">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135810.png" alt="Education Loan">
+        <h3>Education Loan</h3>
+        <p>Finance your studies with flexible education loan options for students.</p>
+      </div>
+      <div class="service">
+        <img src="https://cdn-icons-png.flaticon.com/512/743/743007.png" alt="Gold Loan">
+        <h3>Gold Loan</h3>
+        <p>Unlock the value of your gold with instant loans at attractive interest rates.</p>
+      </div>
+      <div class="service">
+        <img src="https://cdn-icons-png.flaticon.com/512/743/743131.png" alt="Car Loan">
+        <h3>Car Loan</h3>
+        <p>Drive home your dream car with our easy and fast car loan process.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SUCCESS STORIES ===== -->
+  <section id="success" class="success">
+    <h2>Success Stories</h2>
+    <div class="success-carousel-container">
+      <button class="carousel-arrow left" id="prevStory">&#8592;</button>
+      <div class="success-carousel-slider" id="successCarouselSlider">
+        <!-- JS will fill this -->
+      </div>
+      <button class="carousel-arrow right" id="nextStory">&#8594;</button>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+  </section>
+
+  <!-- ===== CONTACT FORM ===== -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm" action="process.php" method="POST">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" name="fname" required>
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" name="lname" required>
+      </div>
+      <div class="form-group">
+        <label>Contact Number</label>
+        <input type="tel" name="phone" pattern="[0-9]{10}" placeholder="10-digit number" required>
+      </div>
+      <div class="form-group">
+        <label>Email ID</label>
+        <input type="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label>Requirement</label>
+        <select name="requirement" required>
+          <option value="">--Select--</option>
+          <option value="Home Loan">Home Loan</option>
+          <option value="Business Loan">Business Loan</option>
+          <option value="Personal Loan">Personal Loan</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Working Profession</label>
+        <input type="text" name="profession" required>
+      </div>
+      <div class="form-group">
+        <label>Address</label>
+        <textarea name="address" required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Message (Optional)</label>
+        <textarea name="message"></textarea>
+      </div>
+      <div class="btn-group">
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>© 2025 Kolpek Associates. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+<script>
+const successStories = [
+  {
+    name: "Ramesh Patel",
+    photo: "https://randomuser.me/api/portraits/men/32.jpg",
+    review: "Thanks to Kolpek Associates, I bought my first house smoothly! The process was transparent and the staff was very supportive throughout. Highly recommended!"
+  },
+  {
+    name: "Anita Sharma",
+    photo: "https://randomuser.me/api/portraits/women/44.jpg",
+    review: "My business grew rapidly with their loan support. The business loan process was quick and easy, and the team guided me at every step."
+  }
+];
+let currentStory = 0;
+function renderStory() {
+  const slider = document.getElementById('successCarouselSlider');
+  const s = successStories[currentStory];
+  slider.innerHTML = `
+    <div class='success-card active'>
+      <img src='${s.photo}' alt='${s.name}' class='success-photo' />
+      <div class='success-card-content'>
+        <h3 class='success-name'>${s.name}</h3>
+        <p class='success-review'>"${s.review}"</p>
+      </div>
+    </div>
+  `;
+  // Dots
+  const dots = document.getElementById('carouselDots');
+  dots.innerHTML = successStories.map((_, i) => `<span class='carousel-dot${i === currentStory ? " active" : ""}' onclick='goToStory(${i})'></span>`).join('');
+}
+function prevStory() {
+  currentStory = (currentStory - 1 + successStories.length) % successStories.length;
+  renderStory();
+}
+function nextStory() {
+  currentStory = (currentStory + 1) % successStories.length;
+  renderStory();
+}
+function goToStory(i) {
+  currentStory = i;
+  renderStory();
+}
+document.getElementById('prevStory').onclick = prevStory;
+document.getElementById('nextStory').onclick = nextStory;
+document.addEventListener('DOMContentLoaded', renderStory);
+</script>
+</body>
+</html>
