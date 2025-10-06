@@ -24,7 +24,7 @@ $result = $conn->query("SELECT * FROM contacts ORDER BY id DESC");
         th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
         th { background-color: orange; color: white; }
         tr:nth-child(even) { background-color: #f9f9f9; }
-        .logout { margin-top: 20px; }
+        .logout { margin-top: 200px; }
     </style>
 </head>
 <body>
@@ -98,9 +98,10 @@ $result = $conn->query("SELECT * FROM contacts ORDER BY id DESC");
             <?php } ?>
         </table>
     </div>
-
-    <div class="logout">
-        <a href="logout.php">Logout</a>
+    <div class="logout-btn-box">
+        <form action="logout.php" method="post" style="display:flex;justify-content:center;align-items:center;">
+            <button type="submit" style="background-color: maroon;color:#fff;border:none;border-radius:12px;margin:45px;padding:12px 24px;font-size:1.2rem;font-weight:bold;box-shadow:0 4px 18px rgba(148, 67, 5, 0.1);letter-spacing:0.5px;outline:none;cursor:pointer;">Logout</button>
+        </form>
     </div>
 </body>
 </html>

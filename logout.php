@@ -35,7 +35,7 @@ session_destroy();
 </head>
 <body>
 	<div class="logout-btn-box">
-		<form action="login.php" method="get">
+		<form action="index.html" method="get">
 			<button type="submit" class="logout-btn">Go to Login</button>
 		</form>
 	</div>

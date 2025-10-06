@@ -25,7 +25,6 @@ $result = $conn->query($sql);
         th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
         th { background-color: orange; color: white; }
         tr:nth-child(even) { background-color: #f9f9f9; }
-        .logout { margin-top: 20px; }
     </style>
 </head>
 <body>
@@ -69,9 +68,12 @@ $result = $conn->query($sql);
         <?php } ?>
     <!-- No summary row needed -->
     </table>
-
-    <div class="logout">
-        <a href="logout.php">Logout</a>
+    <?php if (isset($_SESSION['user_id']) && $_SESSION['role'] == 'staff') { ?>
+    <div class="logout-btn-box">
+        <form action="logout.php" method="post" style="display:flex;justify-content:center;align-items:center;">
+            <button type="submit" style="background:#e53935;color:#fff;border:none;border-radius:12px;margin: 46px;padding:10px 24px;font-size:1.5rem;font-weight:bold;box-shadow:0 4px 18px rgba(0,0,0,0.10);letter-spacing:0.5px;outline:none;cursor:pointer;">Logout</button>
+        </form>
     </div>
+    <?php } ?>
 </body>
 </html>

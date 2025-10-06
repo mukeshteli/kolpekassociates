@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";   // default for WAMP
 $password = "";       // default for WAMP
-$dbname = "mywebsite_db";
+$dbname = "kolpek_db";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
@@ -72,7 +72,7 @@ if ($conn->query($insert_sql) === TRUE) {
         . "Message: $message\n";
     $headers = 'From: noreply@kolpekassociates.com';
     mail($to, $subject, $body, $headers);
-    echo "Thank you! Your information has been saved successfully.";
+    echo "<script>alert('Form submitted! We will get back to you soon.'); window.location.href='index.html';</script>";
 } else {
     echo "Error: " . $insert_sql . "<br>" . $conn->error;
 }
